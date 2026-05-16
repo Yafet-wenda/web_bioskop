@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CINEMAX - Movie</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/movie.css">
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- GOOGLE ICON -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ========================= -->
+  <!-- HERO -->
+  <!-- ========================= -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <header class="movie-header">
+      <button class="back-btn" onclick="goBack()">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <div>
+        <p class="small-text">Bioskop Dipilih</p>
+        <h1 id="cinemaTitle">CINEMAX Galaxy Mall</h1>
+      </div>
+    </header>
+    <div class="hero-content">
+      <h2>Nikmati Pengalaman Menonton Terbaik</h2>
+      <p>Film terbaru dengan kualitas premium hanya di CINEMAX.</p>
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- SEARCH -->
+  <!-- ========================= -->
+  <section class="search-section">
+    <div class="search-box">
+      <span class="material-symbols-outlined">search</span>
+      <input type="text" id="searchInput" placeholder="Cari film favoritmu...">
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- FILTER -->
+  <!-- ========================= -->
+  <section class="filter-section">
+    <button class="filter-btn active" data-filter="all">Semua</button>
+    <button class="filter-btn" data-filter="Action">Action</button>
+    <button class="filter-btn" data-filter="Drama">Drama</button>
+    <button class="filter-btn" data-filter="Anime">Anime</button>
+    <button class="filter-btn" data-filter="Horror">Horror</button>
+  </section>
+
+  <!-- ========================= -->
+  <!-- MOVIE GRID -->
+  <!-- ========================= -->
+  <main class="movie-container">
+    <div class="movie-grid" id="movieGrid">
+      <!-- MOVIE CARD -->
+    </div>
+    <div class="empty-state" id="emptyState">
+      <span class="material-symbols-outlined">movie_off</span>
+      <h2>Film Tidak Ditemukan</h2>
+      <p>Coba cari dengan kata kunci lain.</p>
+    </div>
+  </main>
+
+  <!-- ========================= -->
+  <!-- FOOTER -->
+  <!-- ========================= -->
+  <footer class="footer">
+    <p>© 2026 CINEMAX Cinema</p>
+  </footer>
+
+  <!-- ========================= -->
+  <!-- SEAT POPUP -->
+  <!-- ========================= -->
+  <div class="seat-modal" id="seatModal">
+    <div class="seat-popup">
+      <!-- HEADER -->
+      <div class="seat-header">
+        <h2>Kursi</h2>
+        <button class="close-btn" onclick="closeSeatModal()">✕</button>
+      </div>
+      <!-- SCREEN -->
+      <div class="screen-area">
+        <div class="screen">SCREEN</div>
+      </div>
+      <!-- SEAT AREA -->
+      <div class="seat-layout">
+        <!-- COLUMN NUMBER -->
+        <div class="seat-numbers">
+          <span></span>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+          <span>5</span>
+          <span>6</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+          <span>10</span>
+          <span>11</span>
+          <span>12</span>
+        </div>
+        <!-- SEAT GRID -->
+        <div id="seatContainer"></div>
+      </div>
+      <!-- LEGEND -->
+      <div class="seat-legend">
+        <div class="legend-item">
+          <div class="legend-box selected-box"></div>
+          <span>Dipilih</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-box available-box"></div>
+          <span>Kosong</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-box occupied-box"></div>
+          <span>Terisi</span>
+        </div>
+      </div>
+      <!-- PAYMENT -->
+      <div class="payment-section">
+        <div>
+          <p>Kursi Yang Dipilih</p>
+          <div class="selected-seat-text" id="selectedSeats">-</div>
+        </div>
+        <div>
+          <p>Total Harga</p>
+          <h3 id="totalPrice">Rp 0</h3>
+        </div>
+        <button class="pay-btn" onclick="payNow()">Lanjut Bayar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="js/movie.js"></script>
+
+</body>
+</html>

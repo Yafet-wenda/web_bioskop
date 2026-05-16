@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CINEMAX - Streaming & Ticket</title>
+  <link rel="stylesheet" href="css/Bioskop.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo-group">
+        <div class="logo-box"></div>
+        <span class="brand-name">CINEMAX</span>
+      </div>
+      <nav class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="bioskop.html" class="active">Bioskop</a></li>
+          <li><a href="watch.html">Live Streaming</a></li>
+          <li><a href="dashboard.html">Dasboard</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="content-wrapper">
+      <div class="top-bar">
+        <div class="search-box">
+          <!-- Gogel Symbol -->
+          <span class="material-symbols-outlined">search</span>
+          <input type="text" placeholder="Cari Bioskop atau Film...">
+        </div>
+        <div class="location-wrapper">
+          <!-- Gole Symbol -->
+          <span class="material-symbols-outlined">location_on</span>
+          <input type="text" class="location-input-field" placeholder="Ketik Lokasimu...">
+        </div>
+      </div>
+      <section class="grid-section">
+        <h2 class="section-title">Daftar Bioskop Terdekat</h2>
+        <div class="cinema-grid" id="card-container"></div>
+      </section>
+    </div>
+  </main>
+
+  <div id="infoModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <p class="modal-label">info</p>
+      <div class="modal-body">
+        <img src="img/rauangfilm.jpg" alt="Studio" class="modal-img">
+        <div class="modal-info">
+          <p class="label-text">Studio Tersedia :</p>
+          <div class="studio-tag">Cinema XXI</div>
+          <div class="price-container">
+            <!-- 🎟️ Google Symbol -->
+            <p class="price-title"><span class="material-symbols-outlined">confirmation_number</span> Harga Tiket Masuk</p>
+            <ul class="price-list">
+              <li>Jumat : <span>Rp 35.000</span></li>
+              <li>Hari Biasa : <span>Rp 30.000</span></li>
+              <li>Akhir Pekan : <span>Rp 40.000</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/bioskop.js"></script>
+</body>
+</html>

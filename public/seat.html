@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilih Kursi</title>
+  <link rel="stylesheet" href="css/seat.css">
+</head>
+<body>
+
+  <div class="seat-container">
+    <h2>Kursi</h2>
+    <div class="screen">SCREEN</div>
+
+    <!-- NOMOR -->
+    <div class="seat-numbers" id="numbers"></div>
+
+    <!-- GRID -->
+    <div class="seats" id="seatGrid"></div>
+
+    <!-- LEGEND -->
+    <div class="legend">
+      <div><span class="box selected"></span> Dipilih</div>
+      <div><span class="box"></span> Kosong</div>
+      <div><span class="box occupied"></span> Terisi</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="summary">
+      <div>
+        <p>Kursi Yang Dipilih</p>
+        <span id="selectedSeats">-</span>
+      </div>
+      <div>
+        <p>Total Harga</p>
+        <span id="totalPrice">Rp 0</span>
+      </div>
+      <button id="payBtn">Lanjut Bayar</button>
+    </div>
+  </div>
+
+  <script src="js/seat.js"></script>
+
+</body>
+</html>

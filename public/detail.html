@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CINEMAX - Detail Film</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/detail.css">
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- GOOGLE ICON -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ========================= -->
+  <!-- HERO -->
+  <!-- ========================= -->
+  <section class="hero" id="hero">
+    <div class="hero-overlay"></div>
+
+    <!-- ========================= -->
+    <!-- HEADER -->
+    <!-- ========================= -->
+    <header class="detail-header">
+      <button class="back-btn" onclick="goBack()">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <h2>Detail Film</h2>
+    </header>
+
+    <!-- ========================= -->
+    <!-- HERO CONTENT -->
+    <!-- ========================= -->
+    <div class="hero-content">
+      <!-- POSTER -->
+      <div class="poster-wrapper">
+        <img id="moviePoster" class="movie-poster">
+      </div>
+
+      <!-- INFO -->
+      <div class="movie-info">
+        <!-- STATUS -->
+        <div class="movie-status" id="movieStatus">NOW SHOWING</div>
+        <!-- TITLE -->
+        <h1 id="movieTitle">Avengers Endgame</h1>
+        <!-- META -->
+        <div class="movie-meta">
+          <div class="meta-item">
+            <span class="material-symbols-outlined">category</span>
+            <span id="movieGenre">Action</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-symbols-outlined">schedule</span>
+            <span id="movieDuration">3h 1m</span>
+          </div>
+          <div class="meta-item">
+            <span class="material-symbols-outlined">star</span>
+            <span id="movieRating">9.0</span>
+          </div>
+        </div>
+        <!-- DESCRIPTION -->
+        <p class="movie-description" id="movieDescription"></p>
+        <!-- BUTTON -->
+        <div class="hero-buttons">
+          <button class="trailer-btn" onclick="openTrailer()">
+            <span class="material-symbols-outlined">play_arrow</span>
+            Trailer
+          </button>
+          <button class="book-btn" onclick="openSeatModal()">
+            <span class="material-symbols-outlined">confirmation_number</span>
+            Pesan Tiket
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- CAST -->
+  <!-- ========================= -->
+  <section class="cast-section">
+    <div class="section-title">
+      <span class="material-symbols-outlined">groups</span>
+      <h2>Cast</h2>
+    </div>
+    <div class="cast-container">
+      <!-- CARD -->
+      <div class="cast-card">
+        <img src="img/cast1.jpg">
+        <h3>Robert Downey Jr</h3>
+        <p>Tony Stark</p>
+      </div>
+      <!-- CARD -->
+      <div class="cast-card">
+        <img src="img/cast2.jpg">
+        <h3>Chris Evans</h3>
+        <p>Captain America</p>
+      </div>
+      <!-- CARD -->
+      <div class="cast-card">
+        <img src="img/cast3.jpg">
+        <h3>Scarlett Johansson</h3>
+        <p>Black Widow</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- SCHEDULE -->
+  <!-- ========================= -->
+  <section class="schedule-section">
+    <div class="section-title">
+      <span class="material-symbols-outlined">calendar_month</span>
+      <h2>Jadwal Tayang</h2>
+    </div>
+    <div class="schedule-container" id="scheduleContainer"></div>
+  </section>
+
+  <!-- ========================= -->
+  <!-- SEAT MODAL -->
+  <!-- ========================= -->
+  <div class="seat-modal" id="seatModal">
+    <div class="seat-popup">
+      <!-- HEADER -->
+      <div class="seat-header">
+        <h2>Pilih Kursi</h2>
+        <button class="close-btn" onclick="closeSeatModal()">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <!-- SCREEN -->
+      <div class="screen-area">
+        <div class="screen">SCREEN</div>
+      </div>
+      <!-- NUMBER -->
+      <div class="seat-numbers">
+        <span></span>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span>7</span>
+        <span>8</span>
+        <span>9</span>
+        <span>10</span>
+        <span>11</span>
+        <span>12</span>
+      </div>
+      <!-- SEAT -->
+      <div id="seatContainer"></div>
+      <!-- LEGEND -->
+      <div class="seat-legend">
+        <div class="legend-item">
+          <div class="legend-box available-box"></div>
+          <span>Tersedia</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-box selected-box"></div>
+          <span>Dipilih</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-box occupied-box"></div>
+          <span>Terisi</span>
+        </div>
+      </div>
+      <!-- PAYMENT -->
+      <div class="payment-section">
+        <div>
+          <p>Kursi Dipilih</p>
+          <div class="selected-seat-text" id="selectedSeats">-</div>
+        </div>
+        <div>
+          <p>Total Harga</p>
+          <h3 id="totalPrice">Rp 0</h3>
+        </div>
+        <button class="pay-btn" onclick="payNow()">
+          <span class="material-symbols-outlined">payments</span>
+          Lanjut Bayar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================= -->
+  <!-- TRAILER MODAL -->
+  <!-- ========================= -->
+  <div class="trailer-modal" id="trailerModal">
+    <div class="trailer-popup">
+      <!-- CLOSE -->
+      <button class="trailer-close" onclick="closeTrailer()">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <!-- VIDEO -->
+      <iframe id="trailerFrame" src="" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="js/detail.js"></script>
+
+</body>
+</html>
