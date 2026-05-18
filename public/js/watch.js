@@ -146,6 +146,7 @@ const fullDescription = document.getElementById('hero-floating-description');
 const detailCard = document.getElementById('movie-detail-card');
 const viewAllBtn = document.getElementById('view-all-btn');
 const favoriteBtn = document.getElementById('favorite-btn');
+const searchMovie = document.getElementById("search-movie");
 
 /* =========================================
    STATE
@@ -449,3 +450,12 @@ if (savedMovie) {
 } else {
   loadMovie(movies[0]);
 }
+// ======================================================
+// SEARCH MOVIE
+// ======================================================
+
+searchMovie.addEventListener("input", () => {
+
+  console.log(searchMovie.value);
+
+});

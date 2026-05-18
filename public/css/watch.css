@@ -1159,3 +1159,200 @@ img{
   padding:0;
   overflow:hidden;
 }
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    background: #020617;
+
+    padding: 5rem 5% 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem;
+
+    padding-bottom: 3rem;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: var(--primary);
+
+    margin-bottom: 1.5rem;
+}
+
+.footer-section p,
+.footer-section li {
+    color: var(--text-muted);
+
+    margin-bottom: 0.8rem;
+}
+
+.footer-bottom {
+    text-align: center;
+
+    padding-top: 2rem;
+
+    color: var(--text-muted);
+}
+
+/* =====================================================
+   RESPONSIVE TABLET
+===================================================== */
+
+@media (max-width: 992px) {
+
+    .banner-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner-text p {
+        margin-inline: auto;
+    }
+
+    .banner-actions {
+        justify-content: center;
+    }
+
+    .experience-row,
+    .experience-row.reverse {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =====================================================
+   RESPONSIVE MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+
+        padding: 1rem;
+    }
+
+    .brand-name {
+        font-size: 1.7rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    .btn-login {
+        padding: 0.55rem 0.9rem;
+        font-size: 0.8rem;
+    }
+
+    .hero-banner {
+        min-height: auto;
+
+        padding: 180px 5% 80px;
+    }
+
+    .poster-mini {
+        width: 220px;
+    }
+
+    .banner-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .banner-actions {
+        flex-direction: column;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .card-img {
+        height: 240px;
+    }
+
+    .card-info {
+        padding: 1rem;
+    }
+
+    .card-info h3 {
+        font-size: 0.95rem;
+    }
+
+    .card-info p {
+        font-size: 0.8rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-item {
+        padding: 2rem;
+    }
+
+    .cta-banner {
+        padding: 2rem;
+    }
+
+    .cta-banner h2 {
+        font-size: 1.8rem;
+    }
+
+    .section-title-center h2 {
+        font-size: 2rem;
+    }
+
+    .experience-text h3 {
+        font-size: 1.6rem;
+    }
+
+    .slideshow-container {
+        height: 260px;
+    }
+}
+
+/* =====================================================
+   RESPONSIVE SMALL PHONE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .movie-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .banner-text h1 {
+        font-size: 2rem;
+    }
+
+    .movie-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+/* =====================================================
+   DYNAMIC HERO ANIMATION
+===================================================== */
+
+.hero-banner{
+    transition:
+    background-image 0.8s ease,
+    background 0.8s ease;
+}

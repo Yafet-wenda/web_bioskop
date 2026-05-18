@@ -67,6 +67,25 @@
       <h2 class="movie-section-title">Film Sedang Tayang</h2>
       <button id="btnLihatSemua" class="btn-view-all-custom">Lihat Semua</button>
     </div>
+    <!-- TAMBAHKAN DI SINI: Menu Kategori sebagai Filter -->
+<div class="movie-category" id="movieCategory">
+  <ul class="category-list">
+  <li><a href="#" class="active" data-category="all">Semua</a></li>
+  <li><a href="#" data-category="Action">Action</a></li>
+  <li><a href="#" data-category="Sci-Fi">Sci-Fi</a></li>
+  <li><a href="#" data-category="Fantasy">Fantasy</a></li>
+  <li><a href="#" data-category="Thriller">Thriller</a></li>
+  <li><a href="#" data-category="Comedy">Comedy</a></li>
+  <li><a href="#" data-category="Horror">Horror</a></li>
+  <li><a href="#" data-category="Anime">Anime</a></li>
+  <li><a href="#" data-category="Drama">Drama</a></li>
+  </ul>
+</div>
+    <!-- SEARCH MOVIE -->
+    <div class="search-box">
+      <span class="material-symbols-outlined">search</span>
+      <input type="text" id="search-movie" placeholder="Search movies..." />
+    </div>
     <!-- MOVIE GRID -->
     <div class="movie-grid" id="movieGrid">
       <!-- MOVIE CARD OTOMATIS DARI JS -->

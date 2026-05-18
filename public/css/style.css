@@ -1058,3 +1058,150 @@ footer {
     transform,
     opacity;
 }
+.category-list {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  list-style: none;
+  margin: 35px 0 45px;
+  padding: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.category-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* BUTTON */
+.category-list li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: max-content;
+  padding: 12px 22px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 600;
+  transition: 0.3s ease;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+/* HOVER */
+.category-list li a:hover {
+  transform: translatey(-1px);
+  color: white;
+  background: rgba(249, 110, 43, 0.18);
+  border: 1px solid rgba(249, 110, 43, 0.4);
+  -webkit-transform: translatey(-1px);
+  -moz-transform: translatey(-1px);
+  -ms-transform: translatey(-1px);
+  -o-transform: translatey(-1px);
+}
+
+/* ACTIVE */
+.category-list li a.active {
+  background: var(--accent);
+  color: white;
+}
+.empty-movie{
+
+  width:100%;
+
+  text-align:center;
+
+  padding:60px 20px;
+
+  color:var(--text-muted);
+
+  font-size:18px;
+
+  font-weight:600;
+}
+/* =========================================
+   SEARCH MOVIE
+========================================= */
+.search-box{
+
+  width:100%;
+
+  max-width:420px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  margin:
+    10px 0 35px;
+
+  padding:14px 18px;
+
+  border-radius:18px;
+
+  background:
+    rgba(255,255,255,0.04);
+
+  border:
+    1px solid rgba(255,255,255,0.06);
+
+  backdrop-filter:blur(10px);
+
+  transition:0.3s ease;
+}
+
+/* HOVER */
+.search-box:hover{
+
+  border:
+    1px solid rgba(123,190,222,0.35);
+}
+
+/* ICON */
+.search-box .material-symbols-outlined{
+
+  color:var(--primary);
+
+  font-size:22px;
+}
+
+/* INPUT */
+.search-box input{
+
+  flex:1;
+
+  background:transparent;
+
+  border:none;
+
+  outline:none;
+
+  color:white;
+
+  font-size:15px;
+
+  font-weight:500;
+}
+
+/* PLACEHOLDER */
+.search-box input::placeholder{
+
+  color:var(--text-muted);
+}
+
+/* FOCUS */
+.search-box:focus-within{
+
+  border:
+    1px solid rgba(249,110,43,0.5);
+
+  box-shadow:
+    0 0 20px rgba(249,110,43,0.12);
+}

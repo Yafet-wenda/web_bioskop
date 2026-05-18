@@ -8,6 +8,7 @@
 const movies = [
   {
     title: "Avatar: Fire and Ash",
+     category: "Fantasy",
     rating: "8.5",
     image: "img/avatar.webp",
     description: "Petualangan epik terbaru Pandora dengan visual sinematik luar biasa.",
@@ -15,6 +16,7 @@ const movies = [
   },
   {
     title: "Star Wars: The Phantom Menace",
+      category: "Sci-Fi",
     rating: "9.0",
     image: "img/film6.webp",
     description: "Perjalanan awal Anakin Skywalker dalam dunia galaksi Star Wars.",
@@ -22,6 +24,7 @@ const movies = [
   },
   {
     title: "Solo: A Star Wars Story",
+      category: "Sci-Fi",
     rating: "7.8",
     image: "img/film3.webp",
     description: "Asal mula Han Solo menjadi penyelundup legendaris galaksi.",
@@ -29,6 +32,7 @@ const movies = [
   },
   {
     title: "Predator: Padang Pasir",
+    category: "Action",
     rating: "8.2",
     image: "img/film4.webp",
     description: "Makhluk pemburu mematikan kembali meneror gurun mematikan.",
@@ -36,6 +40,7 @@ const movies = [
   },
   {
     title: "Mercy",
+    category: "Thriller",
     rating: "8.2",
     image: "img/film5.webp",
     description: "Thriller futuristik penuh aksi dan misteri teknologi modern.",
@@ -43,6 +48,7 @@ const movies = [
   },
   {
     title: "A Wrinkle in Time",
+    category: "Fantasy",
     rating: "8.1",
     image: "img/film2.webp",
     description: "Perjalanan lintas dimensi penuh fantasi dan petualangan keluarga.",
@@ -50,6 +56,7 @@ const movies = [
   },
   {
     title: "Under Wraps 2",
+    category: "Comedy",
     rating: "8.0",
     image: "img/film7.webp",
     description: "Komedi keluarga dengan petualangan mumi yang seru dan lucu.",
@@ -57,11 +64,28 @@ const movies = [
   },
   {
     title: "Genius",
+    category: "Comedy",
     rating: "7.9",
     image: "img/film4.webp",
     description: "Film keluarga klasik penuh inspirasi dan humor ringan.",
     info: "G | Comedy | 1h 22m"
-  }
+  },
+{
+  title: "The Nun",
+  category: "Horror",
+  rating: "7.5",
+  image: "img/nun.webp",
+  description: "Teror biarawati iblis yang menghantui sebuah gereja tua.",
+  info: "17+ | Horror | 1h 36m"
+},
+{
+  title: "Your Name",
+  category: "Anime",
+  rating: "8.9",
+  image: "img/yourname.webp",
+  description: "Kisah romantis anime tentang dua remaja yang saling bertukar tubuh.",
+  info: "13+ | Anime, Romance | 1h 52m"
+}
 ];
 
 // ======================================================
@@ -73,58 +97,109 @@ const heroPoster = document.getElementById("heroPoster");
 const heroTitle = document.getElementById("heroTitle");
 const heroDesc = document.getElementById("heroDesc");
 const btnLihatSemua = document.getElementById("btnLihatSemua");
-
-// ======================================================
-// RENDER MOVIES
-// ======================================================
+const searchMovie = document.getElementById("search-movie");
+const categoryButtons = document.querySelectorAll(".category-list a");
+let activeCategory = "all";
+let searchValue = "";
 function renderMovies(limit = 4) {
+
   movieGrid.innerHTML = "";
 
-  movies.slice(0, limit).forEach((movie, index) => {
-    const movieCard = document.createElement("div");
-    movieCard.classList.add("movie-card");
+  // =========================================
+  // FILTER MOVIES
+  // =========================================
+  let filteredMovies = movies.filter(movie => {
 
-    if (index === 0) {
-      movieCard.classList.add("active-movie");
-    }
+    // CATEGORY
+    const matchCategory =
+      activeCategory === "all" ||
+      movie.category === activeCategory;
 
-    movieCard.innerHTML = `
-        <div class="card-img">
-            <img src="${movie.image}" alt="${movie.title}">
-            <div class="rating">${movie.rating}</div>
-        </div>
-        <div class="card-info">
-            <h3>${movie.title}</h3>
-            <p>${movie.info}</p>
-            <button class="btn-card" onclick="openMovie('${movie.title}')">Detail Film</button>
-        </div>
+    // SEARCH
+    const matchSearch =
+      movie.title.toLowerCase().includes(searchValue);
+
+    return matchCategory && matchSearch;
+
+  });
+
+  // =========================================
+  // EMPTY MOVIE
+  // =========================================
+  if(filteredMovies.length === 0){
+
+    movieGrid.innerHTML = `
+      <p class="empty-movie">
+        Film tidak ditemukan.
+      </p>
     `;
 
-    // ======================================================
-    // CLICK CARD
-    // ======================================================
-    movieCard.addEventListener("click", () => {
-      // UPDATE HERO
-      updateHero(movie);
+    return;
+  }
 
-      // REMOVE ACTIVE
-      document.querySelectorAll(".movie-card").forEach(card => {
-        card.classList.remove("active-movie");
+  // =========================================
+  // LIMIT
+  // =========================================
+  filteredMovies
+    .slice(0, limit)
+    .forEach((movie, index) => {
+
+      const movieCard = document.createElement("div");
+
+      movieCard.classList.add("movie-card");
+
+      if(index === 0){
+        movieCard.classList.add("active-movie");
+      }
+
+      movieCard.innerHTML = `
+        <div class="card-img">
+
+          <img src="${movie.image}" alt="${movie.title}">
+
+          <div class="rating">
+            ${movie.rating}
+          </div>
+
+        </div>
+
+        <div class="card-info">
+
+          <h3>${movie.title}</h3>
+
+          <p>${movie.info}</p>
+
+          <button
+            class="btn-card"
+            onclick="openMovie('${movie.title}')"
+          >
+            Detail Film
+          </button>
+
+        </div>
+      `;
+
+      // CLICK CARD
+      movieCard.addEventListener("click", () => {
+
+        updateHero(movie);
+
+        document.querySelectorAll(".movie-card").forEach(card => {
+          card.classList.remove("active-movie");
+        });
+
+        movieCard.classList.add("active-movie");
+
+        document.getElementById("heroBanner").scrollIntoView({
+          behavior: "smooth"
+        });
+
       });
 
-      // ACTIVE CARD
-      movieCard.classList.add("active-movie");
+      movieGrid.appendChild(movieCard);
 
-      // ==================================================
-      // SCROLL KE HERO BANNER
-      // ==================================================
-      document.getElementById("heroBanner").scrollIntoView({
-        behavior: "smooth"
-      });
     });
 
-    movieGrid.appendChild(movieCard);
-  });
 }
 
 // ======================================================
@@ -222,4 +297,40 @@ document.getElementById('startNowBtn')?.addEventListener('click', () => {
 ========================================= */
 document.getElementById('startStreamingBtn')?.addEventListener('click', () => {
   window.location.href = 'watch.html';
+});
+// =========================================
+// SEARCH MOVIE
+// =========================================
+searchMovie.addEventListener("input", (e) => {
+
+  searchValue = e.target.value.toLowerCase();
+
+  renderMovies();
+
+});
+// =========================================
+// CATEGORY FILTER
+// =========================================
+categoryButtons.forEach(button => {
+
+  button.addEventListener("click", (e) => {
+
+    e.preventDefault();
+
+    // REMOVE ACTIVE
+    categoryButtons.forEach(btn => {
+      btn.classList.remove("active");
+    });
+
+    // ACTIVE BUTTON
+    button.classList.add("active");
+
+    // SAVE CATEGORY
+    activeCategory =
+      button.dataset.category;
+
+    // RENDER MOVIES
+    renderMovies();
+  });
+
 });
