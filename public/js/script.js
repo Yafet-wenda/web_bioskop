@@ -206,16 +206,37 @@ function renderMovies(limit = 4) {
 // UPDATE HERO
 // ======================================================
 function updateHero(movie) {
+
+  // CHECK LIGHT MODE
+  const isLight =
+    document.body.classList.contains("light-theme");
+
+  // OVERLAY
+  const overlay = isLight
+    ? `
+      linear-gradient(
+        to right,
+        rgba(255,255,255,0.92) 20%,
+        rgba(255,255,255,0.55) 45%,
+        rgba(255,255,255,0.10) 100%
+      )
+    `
+    : `
+      linear-gradient(
+        to right,
+        rgba(15,23,42,0.98) 20%,
+        rgba(15,23,42,0.75) 45%,
+        rgba(15,23,42,0.35) 100%
+      )
+    `;
+
+  // UPDATE BACKGROUND
   heroBanner.style.background = `
-    linear-gradient(
-      to right,
-      rgba(15,23,42,0.98) 20%,
-      rgba(15,23,42,0.75) 45%,
-      rgba(15,23,42,0.35) 100%
-    ),
+    ${overlay},
     url('${movie.image}') center/cover no-repeat
   `;
 
+  // UPDATE CONTENT
   heroPoster.src = movie.image;
   heroTitle.textContent = movie.title;
   heroDesc.textContent = movie.description;
